@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 import time
 import base64
 import os
@@ -12,28 +11,16 @@ class ReverseImageSearcher:
         })
     
     def search_google(self, image_path):
-        """Search image on Google Images"""
+        """Search image on Google Images - simplified demo version"""
         try:
-            # This is a simplified version
-            # For production, you'd need to handle Google's complex HTML
-            
-            # Convert image to base64
-            with open(image_path, 'rb') as img_file:
-                img_data = base64.b64encode(img_file.read()).decode('utf-8')
-            
-            # Demo results
+            # Demo results (actual API would require more complex implementation)
             return {
                 'engine': 'google',
                 'matches': [
                     {
-                        'title': 'Example result 1',
+                        'title': 'Sample Result 1',
                         'url': 'https://example.com/1',
-                        'thumbnail': 'https://example.com/thumb1.jpg'
-                    },
-                    {
-                        'title': 'Example result 2',
-                        'url': 'https://example.com/2',
-                        'thumbnail': 'https://example.com/thumb2.jpg'
+                        'note': 'Demo result - API integration requires additional setup'
                     }
                 ]
             }
@@ -41,36 +28,22 @@ class ReverseImageSearcher:
             return {'engine': 'google', 'error': str(e), 'matches': []}
     
     def search_yandex(self, image_path):
-        """Search image on Yandex"""
-        try:
-            # Demo results
-            return {
-                'engine': 'yandex',
-                'matches': [
-                    {
-                        'title': 'Yandex result 1',
-                        'url': 'https://yandex.ru/images/1'
-                    }
-                ]
-            }
-        except Exception as e:
-            return {'engine': 'yandex', 'error': str(e), 'matches': []}
+        """Search image on Yandex - simplified demo version"""
+        return {
+            'engine': 'yandex',
+            'matches': [
+                {'title': 'Yandex demo result', 'url': 'https://yandex.ru/images'}
+            ]
+        }
     
     def search_tineye(self, image_path):
-        """Search image on TinEye"""
-        try:
-            # Demo results
-            return {
-                'engine': 'tineye',
-                'matches': [
-                    {
-                        'title': 'TinEye match 1',
-                        'url': 'https://tineye.com/search/1'
-                    }
-                ]
-            }
-        except Exception as e:
-            return {'engine': 'tineye', 'error': str(e), 'matches': []}
+        """Search image on TinEye - simplified demo version"""
+        return {
+            'engine': 'tineye',
+            'matches': [
+                {'title': 'TinEye demo match', 'url': 'https://tineye.com'}
+            ]
+        }
     
     def search_all_engines(self, image_path, engines=['google', 'yandex', 'tineye']):
         """Search image on multiple engines"""
